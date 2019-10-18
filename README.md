@@ -1,68 +1,41 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Pre class 
 
-## Available Scripts
+1. Run create react app and install axios 
 
-In the project directory, you can run:
+# Lesson plan
 
-### `npm start`
+1. Start by building out the Counter component.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- First, build it out using classes and render it on the dom.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+- Next intro the useState hook and restructure the Counter component to use hooks instead of state
 
-### `npm test`
+- explain that useState takes an initial value and uses it on the first render. it returns an array with two values in it. the first value is the value of the state variable and the second is a function specific to that variable that when invoked will update the value of that state variable
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Next build out the TodoContainer just using useEffect and useState
 
-### `npm run build`
+2.1 start with just useState and then bring the component into app
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2.2 show how it renders but there are no todos
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+2.3 intro useEffect to get values from an api
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- explain that useEffect is invoked every time but whether or not the callback function runs depends on what is passed into the array and whether or not the values have changed
 
-### `npm run eject`
+- useEffect can return a function that will be invoked on component unmounting that can be used for things like unsubscribing to a store or cleaning up a timeout
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Also explain the rule of hooks that all hooks must be called every single time. you cannot have an outer if check to decide whether to run it
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Create the hooks file and explain that you can write your own custom hooks that are able to be used anywhere
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- explain each instance of the function has it's own instance of usestate and useeffect
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+4. Bring in the new custom hook into todoContainer
 
-## Learn More
+# Rules of hooks / Info about hooks
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Only call hooks at the top level, not inside if checks or conditionals
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Only use hooks inside of a functional component, not a class based component 
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+3. Each call to a hook has an isolated state meaning that you can use the same hook in multiple places and they will ahve thei own indepent state
